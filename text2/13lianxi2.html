@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="vue2.min.js"></script>
+    <script src="vue-resource.js"></script>
+    <style>
+        .d1{
+            border: 1px dashed #999999;
+            position: absolute;
+            width: 500px;
+            height: 200px;
+            left: 300px;
+            top: 20px;
+            display: none;
+        }
+        .p1{
+            background: #F6F6F6;
+            color: cornflowerblue;
+            font-size: 10px;
+            line-height: 30px;  
+        }
+        .p2{
+            background: #327AB5;
+            color:white;
+            font-size: 10px;
+            line-height: 30px;
+        }
+        .s1{
+            font-size: 30px;;
+        }
+        #box ul{
+            list-style: none;
+           
+        }
+        #box ul li{
+            line-height: 30px;
+            background: #327AB5;
+            color: white;
+            width: 200px;
+            text-align: center;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+            <ul>
+                <li v-for="(value,index) in mydata" @mouseover="show(index)">{{value.name}}</li>
+            </ul>
+        <div class="d1">
+            <p class="p1">
+                周考/首页
+            </p>
+            <div>
+                <p class="p2">首页</p>
+                <p class="s1">我是首页内容</p>
+            </div>
+        </div>
+        <div class="d1">
+            <p class="p1">
+                周考/首页/菜单1
+            </p>
+            <div>
+                <p class="p2">菜单1</p>
+                <p class="s1">我是菜单1内容</p>
+            </div>
+        </div>
+        <div class="d1">
+            <p class="p1">
+                周考/首页/菜单2
+            </p>
+            <div>
+                <p class="p2">菜单2</p>
+                <p class="s1">我是菜单2内容</p>
+            </div>
+        </div>
+        <div class="d1">
+            <p class="p1">
+                周考/首页/菜单3
+            </p>
+            <div>
+                <p class="p2">菜单3</p>
+                <p class="s1">我是菜单3内容</p>
+            </div>
+        </div>
+        <div class="d1">
+            <p class="p1">
+                周考/首页/菜单4
+            </p>
+            <div>
+                <p class="p2">菜单4</p>
+                <p class="s1">我是菜单4内容</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    new Vue({
+        el:"#box",
+        data:{
+            mydata:[{
+                name:"首页"
+            },{
+                name:"菜单1"
+            },{
+                name:"菜单2"
+            },{
+                name:"菜单3"
+            },{
+                name:"菜单4"
+            }]
+        },
+        methods:{
+            show:function(temp){
+                var Getdiv=document.querySelectorAll(".d1");
+                for(var i=0;i<Getdiv.length;i++){
+                    Getdiv[i].style.display="none"
+                }
+                Getdiv[temp].style.display="block";
+            }
+        }
+    })
+</script>
